@@ -11,6 +11,7 @@
 
 html {
   min-height: 100%;
+  margin: 0;
 }
 
 :root {
@@ -27,11 +28,10 @@ html {
 body {
   background-color: var(--dark-bg);
   color: var(--grey-text);
-  font-family: sans-serif;
+  font-family: Open Sans;
 }
 
 .container {
-  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -128,7 +128,6 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  max-width: 400px; /* Tambahkan max-width di sini */
   margin: auto; /* Untuk menempatkan di tengah secara horizontal */
 }
 
@@ -333,35 +332,106 @@ body {
   /* Prevent wrapping */
 }
 
+.container h1{
+  font-size: 15px;
+  margin-left: 20px;
+  color: var(--white);
+}
+
 /* Individual product card */
 .product-ctg {
   display: inline-block;
-  margin-right: 10px;
+ 
   /* Spacing between cards */
-  width: 250px;
+  width: 200px;
+  height: 120px;
   /* Adjust the width as needed */
+  margin: 10px;
 }
 
 .product-card-ctg {
   transition: transform 0.2s;
+  width: 250px;
+  height: 100px;
+  margin-left: 10px;
+  
 }
 
-.product-card-ctg:hover {
+.product-card-ct:hover {
   transform: translateY(-5px);
 }
 
-.product-image-ctg {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
+.product-card-ctg img {
+  width: 200px;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 10px;
 }
 
+
 .product-name-ctg {
-  font-size: 16px;
+  color: var(--white);
+  font-size: 13px;
   margin: 5px 0;
 }
 
-.product-price-ctg {
+.product-container {
   font-size: 14px;
   color: #555;
+}
+
+.product-container::-webkit-scrollbar {
+  width: 20px;
+}
+
+.product-card-ctg::-webkit-scrollbar-track {
+  background-color: var(--dark-bg);
+}
+
+.product-ctg::-webkit-scrollbar-thumb {
+ background-color: var(--dark-bg);
+  border-radius: 5px;
+}
+
+#tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #212121;
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 10px;
+  box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+}
+.tab {
+  color: #777;
+  text-align: center;
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab i {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.tab.active {
+  color: #f7d098;
+}
+.content {
+  padding: 20px;
+}
+
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 400px;
+  }
+  .container-details {
+    max-width: 400px; /* Tambahkan max-width di sini */
+  }
 }

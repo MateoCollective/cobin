@@ -1,110 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food Card</title>
-<style>
-  .image-ratio {
-    position: relative;
-    overflow: hidden;
-  }
-  .image-ratio:before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  .image-ratio .ratio-inner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .image-ratio .ratio-inner img {
-    width: 100%;
-    min-height: 100%;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .food-card {
-    width: 300px;
-    margin: 0 20px;
-    display: inline-block;
-    margin-bottom: 30px;
-  }
-  .food-card .card {
-    position: relative;
-    text-align: left;
-  }
-
-  .food-card .card .card-img {
-    text-align: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
-  }
-  .food-card .card .card-img img {
-    opacity: 0.8;
-  }
-  .food-card .card:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    height: 70px;
-    display: block;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
-  }
-  .food-card .card .card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    overflow: hidden;
-  }
-  .food-card .card .card-content .content {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
-  }
-  .food-card .card .card-content .title {
-    color: #fff;
-    font-weight: 600;
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0 15px 15px;
-  }
-  .food-card .card .card-content .description {
-    padding: 0 15px;
-    color: #fff;
-    font-size: 13px;
-    margin: 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        #tabs {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #212121;
+            display: flex;
+            justify-content: space-around;
+            padding: 0px 10px;
+            box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .tab {
+            color: #777;
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tab i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .tab.active {
+            color: #f7d098;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-<div class="food-card">
-  <div class="card">
-    <div class="card-img">
-      <div class="image-ratio">
-        <div class="ratio-inner">
-          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/11d770100935701.5f13dc435139a.jpg" alt="Food Image">
+    <div id="tabs">
+        <div class="tab active" data-tab="home">
+            <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21H15M9 21V17C9 15.3431 10.3431 14 12 14V14C13.6569 14 15 15.3431 15 17V21M9 21H15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Home</span>
         </div>
-      </div>
+        <div class="tab" data-tab="categories">
+            <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21L13.0815 17.1953C12.4227 16.7717 11.5773 16.7717 10.9185 17.1953L5 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Recipes</span>
+        </div>
+        <div class="tab" data-tab="search">
+            <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="90" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 15.5L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11C5 14.3137 7.68629 17 11 17C12.6597 17 14.1621 16.3261 15.2483 15.237C16.3308 14.1517 17 12.654 17 11C17 7.68629 14.3137 5 11 5C7.68629 5 5 7.68629 5 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Search</span>
+        </div>
+        <div class="tab" data-tab="favorites">
+            <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21L13.0815 17.1953C12.4227 16.7717 11.5773 16.7717 10.9185 17.1953L5 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Favorites</span>
+        </div>
     </div>
-    <div class="card-content">
-      <div class="content">
-        <h3 class="title">Food Title</h3>
-        <p class="description">Description of the food.</p>
-      </div>
+    <div class="content" id="home">
+        <!-- Content for Home tab -->
+        <h2>Home</h2>
+        <p>Welcome to the Recipe App Home page!</p>
     </div>
-  </div>
-</div>
+    <div class="content" id="categories" style="display: none;">
+        <!-- Content for Categories tab -->
+        <h2>Recipes</h2>
+        <p>Explore different recipes by categories.</p>
+    </div>
+    <div class="content" id="search" style="display: none;">
+        <!-- Content for Search tab -->
+        <h2>Search</h2>
+        <p>Search for your favorite recipes here!</p>
+    </div>
+    <div class="content" id="favorites" style="display: none;">
+        <!-- Content for Favorites tab -->
+        <h2>Favorites</h2>
+        <p>Your favorite recipes will appear here.</p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".tab").click(function() {
+                if (!$(this).hasClass("active")) {
+                    $(".tab").removeClass("active");
+                    $(this).addClass("active");
+                    $(".content").hide();
+                    $("#" + $(this).data("tab")).fadeIn(300);
+                }
+            });
+            // Set the initial active tab
+            $(".tab[data-tab='home']").click();
+        });
+    </script>
 </body>
 </html>

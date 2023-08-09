@@ -6,12 +6,34 @@
     <title>Product Search</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body><div class="search-bar">
-    <i class="fas fa-search"></i>
-    <input type="text" placeholder="Cari...">
-  </div>
+<body>
+    
   
+    
+<div id="tabs">
+    <div class="tab active" data-tab="home">
+        <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21H15M9 21V17C9 15.3431 10.3431 14 12 14V14C13.6569 14 15 15.3431 15 17V21M9 21H15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Home</span>
+    </div>
+    <div class="tab" data-tab="categories">
+        <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21L13.0815 17.1953C12.4227 16.7717 11.5773 16.7717 10.9185 17.1953L5 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Recipes</span>
+    </div>
+    <div class="tab" data-tab="search">
+        <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="90" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 15.5L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11C5 14.3137 7.68629 17 11 17C12.6597 17 14.1621 16.3261 15.2483 15.237C16.3308 14.1517 17 12.654 17 11C17 7.68629 14.3137 5 11 5C7.68629 5 5 7.68629 5 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Search</span>
+    </div>
+    <div class="tab" data-tab="favorites">
+        <?xml version="1.0" ?><svg fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21L13.0815 17.1953C12.4227 16.7717 11.5773 16.7717 10.9185 17.1953L5 21Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Favorites</span>
+    </div>
+</div>
+<div class="content" id="home">
+    <!-- Content for Home tab -->
+    <h2>Home</h2>
     <div class="container">
         <h1 class="title">Product Search</h1>
         <div class="search-category-container">
@@ -47,6 +69,36 @@
     <!-- Tambahkan div untuk kategori lain jika diperlukan -->
 
 </div>
+</div>
+<div class="content" id="categories" style="display: none;">
+    <!-- Content for Categories tab -->
+    <h2>Recipes</h2>
+    <p>Explore different recipes by categories.</p>
+</div>
+<div class="content" id="search" style="display: none;">
+    <!-- Content for Search tab -->
+    <h2>Search</h2>
+    <p>Search for your favorite recipes here!</p>
+</div>
+<div class="content" id="favorites" style="display: none;">
+    <!-- Content for Favorites tab -->
+    <h2>Favorites</h2>
+    <p>Your favorite recipes will appear here.</p>
+</div>
+<script>
+    $(document).ready(function() {
+        $(".tab").click(function() {
+            if (!$(this).hasClass("active")) {
+                $(".tab").removeClass("active");
+                $(this).addClass("active");
+                $(".content").hide();
+                $("#" + $(this).data("tab")).fadeIn(300);
+            }
+        });
+        // Set the initial active tab
+        $(".tab[data-tab='home']").click();
+    });
+</script>
     <script src="js/script.js"></script>
 </body>
 </html>
