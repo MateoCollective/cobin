@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Card</title>
+<style>
+  .image-ratio {
+    position: relative;
+    overflow: hidden;
+  }
+  .image-ratio:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  .image-ratio .ratio-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .image-ratio .ratio-inner img {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .food-card {
+    width: 300px;
+    margin: 0 20px;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  .food-card .card {
+    position: relative;
+    text-align: left;
+  }
+
+  .food-card .card .card-img {
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+  }
+  .food-card .card .card-img img {
+    opacity: 0.8;
+  }
+  .food-card .card:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: 70px;
+    display: block;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+  }
+  .food-card .card .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    overflow: hidden;
+  }
+  .food-card .card .card-content .content {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+  }
+  .food-card .card .card-content .title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 15px 15px;
+  }
+  .food-card .card .card-content .description {
+    padding: 0 15px;
+    color: #fff;
+    font-size: 13px;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+<div class="food-card">
+  <div class="card">
+    <div class="card-img">
+      <div class="image-ratio">
+        <div class="ratio-inner">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/11d770100935701.5f13dc435139a.jpg" alt="Food Image">
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <h3 class="title">Food Title</h3>
+        <p class="description">Description of the food.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

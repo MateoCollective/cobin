@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body><div class="search-bar">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Cari...">
+  </div>
+  
+    <div class="container">
+        <h1 class="title">Product Search</h1>
+        <div class="search-category-container">
+            <div class="search">
+                <form class="search-form">
+                    <i class="fas fa-search search"></i>
+                    <input id="searchInput" type="text" name="search" placeholder="Places, Food, Selections" class="search-input">
+                </form>
+            </div>
+            <select id="categoryFilter" class="category-filter">
+                <option value="">All</option>
+                <option value="beef">Beef</option>
+                <option value="kategori1">Category 1</option>
+                <!-- Add more options for other categories -->
+            </select>
+        </div>
+        
+        <div id="productList" class="product-list"></div>
+        <div id="productDetails" class="product-details"></div>
+
+       
+    
+    <!-- Buat div untuk setiap kategori -->
+    <div class="section-category-beef">
+        <h1>Beef Food</h1>
+        <div id="beefProducts" class="product-container"></div>
+    </div>
+    
+    <div class="section-category-kategori1">
+        <h1>Kategori 1</h1>
+        <div id="kategori1Products" class="product-container"></div>
+    </div>
+    <!-- Tambahkan div untuk kategori lain jika diperlukan -->
+
+</div>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
