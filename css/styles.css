@@ -28,7 +28,7 @@ html {
 body {
   background-color: var(--dark-bg);
   color: var(--grey-text);
-  font-family: Open Sans;
+  font-family: Open Sans, Helvetica, sans-serif;
 }
 
 .container {
@@ -424,6 +424,55 @@ body {
 }
 .content {
   padding: 20px;
+}
+
+
+/* Styling for the alternate product list */
+#alternateProductList {
+  margin: 20px;
+}
+
+/* Styling for each individual product item */
+.alternate-product-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for the product card within each item */
+.alternate-product-card {
+  order: 2;
+  text-align: left;
+  margin-top: auto;
+}
+
+/* Styling for the product image */
+.alternate-product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Styling for the product details */
+.alternate-product-details {
+  order: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Styling for the product name */
+.alternate-product-name {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin: 0;
+}
+
+/* Styling for the product price */
+.alternate-product-price {
+  font-size: 1rem;
+  color: var(--grey-text);
+  margin: 5px 0;
 }
 
 
