@@ -56,7 +56,9 @@
             <!-- Content for Home tab -->
 
 
-
+            <div class="greeting-container">
+                <h1 id="greeting"></h1>
+              </div>
 
 
             <!-- Buat div untuk setiap kategori -->
@@ -137,6 +139,26 @@
             // Set the initial active tab
             $(".tab[data-tab='home']").click();
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+  const greetingElement = document.getElementById('greeting');
+  const currentTime = new Date().getHours();
+
+  let greetingMessage = '';
+
+  if (currentTime >= 4 && currentTime < 12) {
+    greetingMessage = 'Selamat Pagi mau masak apa hari ini?..';
+  } else if (currentTime >= 12 && currentTime < 18) {
+    greetingMessage = 'Selamat Siang';
+  } else if (currentTime >= 18 && currentTime < 21) {
+    greetingMessage = 'Selamat Sore';
+  } else {
+    greetingMessage = 'Selamat Malam';
+  }
+
+  greetingElement.textContent = greetingMessage;
+});
+
     </script>
     <script src="js/script.js"></script>
 </body>

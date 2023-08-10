@@ -334,3 +334,5 @@ function displayProductDetails(product) {
     productDetails.innerHTML = '';
   });
 }
+
+

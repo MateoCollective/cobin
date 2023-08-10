@@ -375,22 +375,21 @@ body {
 
 .container h1 {
   font-size: 17px;
-  margin-left: 20px;
+  margin-left: 10px;
   color: var(--white);
 }
 
 
 .product-card-ctg {
   
-  width: 300px; /* Atur lebar kartu sesuai kebutuhan */
-  margin: 10px; /* Atur jarak antara kartu */
+  width: 250px; /* Atur lebar kartu sesuai kebutuhan */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
 
 .product-image-ctg {
   max-width: 100%;
-  width: 300px;
+  width: 250px;
   height: 150px;
   border-radius: 10px;
   object-fit: cover;
