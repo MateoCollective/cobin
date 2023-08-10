@@ -9,6 +9,11 @@
   box-sizing: border-box;
   user-select: none;
 }
+/* Menghilangkan efek tap biru pada elemen yang mendapatkan fokus */
+*:focus {
+  outline: none;
+}
+
 
 html {
   min-height: 100%;
@@ -455,7 +460,7 @@ body {
 /* Styling for the product image */
 .alternate-product-image {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   border-radius: 10px;
 }
