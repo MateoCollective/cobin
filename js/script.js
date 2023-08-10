@@ -32,26 +32,6 @@ function displayShuffledProducts(products) {
   });
 }
 
-// Display list of products with different class and shuffled order
-function displayShuffledAlternateProducts(products) {
-  const alternateProductList = document.getElementById('alternateProductList');
-  const shuffledProducts = shuffleArray([...products]);
-  alternateProductList.innerHTML = '';
-
-  shuffledProducts.forEach(product => {
-    const productItem = document.createElement('div');
-    productItem.classList.add('alternate-product-item'); // Menambahkan class berbeda
-    productItem.dataset.productId = product.name;
-    productItem.innerHTML = `
-      <div class="alternate-product-card"> <!-- Menggunakan class berbeda -->
-        <img src="${product.image}" alt="${product.name}" class="alternate-product-image"> <!-- Menggunakan class berbeda -->
-        <h3 class="alternate-product-name">${product.name}</h3> <!-- Menggunakan class berbeda -->
-        <p class="alternate-product-price">$${product.price}</p> <!-- Menggunakan class berbeda -->
-      </div>
-    `;
-    alternateProductList.appendChild(productItem);
-  });
-}
 
 // Load products from JSON file and display shuffled alternate products
 window.addEventListener('load', () => {
@@ -79,15 +59,77 @@ fetch('json/products.json')
     displayProducts(products);
 
     // Listen for search input changes
-    searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchTerm) ||
-        (product.detail && product.detail.toLowerCase().includes(searchTerm))
-      );
+  // Listen for search input changes
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm) ||
+    (product.detail && product.detail.toLowerCase().includes(searchTerm))
+  );
 
-      displayProducts(filteredProducts);
+  displayProducts(filteredProducts);
+
+  // Generate search recommendations based on input
+  const searchRecommendations = generateSearchRecommendations(searchTerm);
+  displaySearchRecommendations(searchRecommendations);
+});
+
+// Function to generate search recommendations
+function generateSearchRecommendations(searchTerm) {
+  // Filter products to find names that match the search term
+  const matchingProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm)
+  );
+
+  // Extract unique words from matching product names
+  const words = matchingProducts.flatMap(product =>
+    product.name.toLowerCase().split(' ')
+  );
+  const uniqueWords = [...new Set(words)];
+
+  return uniqueWords;
+}
+
+// Function to display search recommendations
+function displaySearchRecommendations(recommendations) {
+  const recommendationList = document.getElementById('searchRecommendations');
+  recommendationList.innerHTML = '';
+
+  recommendations.forEach(recommendation => {
+    const recommendationItem = document.createElement('li');
+    recommendationItem.textContent = recommendation;
+    recommendationItem.addEventListener('click', () => {
+      searchInput.value = recommendation;
+      recommendationList.innerHTML = ''; // Clear recommendations
+      // Trigger search or other action here
     });
+    recommendationList.appendChild(recommendationItem);
+  });
+
+  // Show/hide the recommendation list based on content
+  if (recommendations.length > 0) {
+    recommendationList.style.display = 'block';
+  } else {
+    recommendationList.style.display = 'none';
+  }
+}
+
+// Listen for clicks outside the search input to clear recommendations
+document.addEventListener('click', (event) => {
+  const targetElement = event.target;
+  
+  // Check if the click target is outside the search input
+  if (!searchInput.contains(targetElement)) {
+    clearSearchRecommendations();
+  }
+});
+
+// Function to clear search recommendations
+function clearSearchRecommendations() {
+  const recommendationList = document.getElementById('searchRecommendations');
+  recommendationList.innerHTML = '';
+}
+
 
 
     // Listen for category filter changes

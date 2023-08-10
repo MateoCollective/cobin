@@ -50,7 +50,7 @@
         "price": "99",
         "offer": "BOGOF",
         "category": "kategori1",
-        "image": "http://placehold.it/300x300/999/CCC",
+        "image": "https://images.unsplash.com/photo-1576615278693-f8e095e37e01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
         "ingredients": ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
         "cooking_instructions": [
             "Step 1: Lorem ipsum dolor sit amet.",

@@ -9,6 +9,7 @@
   box-sizing: border-box;
   user-select: none;
 }
+
 /* Menghilangkan efek tap biru pada elemen yang mendapatkan fokus */
 body:focus {
   outline: none;
@@ -41,10 +42,10 @@ body {
   margin: 0 auto;
 }
 
+
 /* Gaya umum untuk kontainer pencarian */
 
 .search-category-container {
-  display: flex;
   align-items: center;
   width: 100%;
   justify-content: center;
@@ -66,10 +67,10 @@ body {
   margin: 20px 0px;
   width: 100%;
   font-size: 15px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.105px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.105px;
 }
 
 .search-input {
@@ -91,6 +92,28 @@ letter-spacing: 0.105px;
   font-size: 14px;
 }
 
+.recommendations {
+  list-style: none;
+  padding: 0;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  width: auto;
+  color: var(--white);
+  background-color: var(--medium-bg);
+  z-index: 1;
+  display: none;
+}
+
+.recommendations li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.recommendations li:hover {
+  background-color: var();
+}
 
 
 .product-list {
@@ -146,12 +169,14 @@ letter-spacing: 0.105px;
   left: 0;
   bottom: 0;
   width: 100%;
-  margin: auto; /* Untuk menempatkan di tengah secara horizontal */
+  margin: auto;
+  /* Untuk menempatkan di tengah secara horizontal */
 }
 
 .con-details {
   background-color: var(--dark-bg);
 }
+
 .container-details::-webkit-scrollbar {
   width: 8px;
 }
@@ -168,6 +193,7 @@ letter-spacing: 0.105px;
 .container-details::-webkit-scrollbar-thumb:hover {
   background-color: var(--gold-color);
 }
+
 .header-details {
   position: absolute;
   top: 0;
@@ -350,7 +376,7 @@ letter-spacing: 0.105px;
   /* Prevent wrapping */
 }
 
-.container h1{
+.container h1 {
   font-size: 17px;
   margin-left: 20px;
   color: var(--white);
@@ -359,7 +385,7 @@ letter-spacing: 0.105px;
 /* Individual product card */
 .product-ctg {
   display: inline-block;
- 
+
   /* Spacing between cards */
   width: 200px;
   height: 120px;
@@ -372,7 +398,7 @@ letter-spacing: 0.105px;
   width: 250px;
   height: 100px;
   margin-left: 10px;
-  
+
 }
 
 .product-card-ct:hover {
@@ -407,7 +433,7 @@ letter-spacing: 0.105px;
 }
 
 .product-ctg::-webkit-scrollbar-thumb {
- background-color: var(--dark-bg);
+  background-color: var(--dark-bg);
   border-radius: 5px;
 }
 
@@ -423,6 +449,7 @@ letter-spacing: 0.105px;
   box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
   z-index: 99;
 }
+
 .tab {
   color: #777;
   text-align: center;
@@ -434,13 +461,16 @@ letter-spacing: 0.105px;
   flex-direction: column;
   align-items: center;
 }
+
 .tab i {
   font-size: 24px;
   margin-bottom: 5px;
 }
+
 .tab.active {
   color: #f7d098;
 }
+
 .content {
   padding: 20px;
 }
@@ -496,13 +526,14 @@ letter-spacing: 0.105px;
   display: inline-block;
   font-size: 12px;
   color: var(--dark-bg);
-  padding: 8px;
+  padding: 8px 15px;
   position: relative;
   z-index: 1;
-  top: -38px;
-  border-top-right-radius: 10px;
-border-bottom-left-radius: 10px;
-  background-color: var(--gold-color);
+  top: -50px;
+  right: -10px;
+  border-radius: 50px;
+  background-color: rgba(247, 207, 152, 0.461);
+  backdrop-filter: blur(10px);
 }
 
 /* Styling for the product price */
@@ -517,7 +548,9 @@ border-bottom-left-radius: 10px;
   .container {
     max-width: 400px;
   }
+
   .container-details {
-    max-width: 400px; /* Tambahkan max-width di sini */
+    max-width: 400px;
+    /* Tambahkan max-width di sini */
   }
 }
