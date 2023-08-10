@@ -142,6 +142,7 @@ body {
   flex-shrink: 0;
   margin-bottom: 5px;
   border-radius: 16px;
+  object-fit: cover;
 }
 
 .product-name {
@@ -382,46 +383,61 @@ body {
   color: var(--white);
 }
 
-/* Individual product card */
-.product-ctg {
-  display: inline-block;
-
-  /* Spacing between cards */
-  width: 200px;
-  height: 120px;
-  /* Adjust the width as needed */
-  margin: 10px;
+.product-container {
+  display: flex;
+  overflow-x: auto;
+  /* Mengaktifkan scrolling horizontal */
+  white-space: nowrap;
+  /* Mencegah pemisahan baris */
 }
 
 .product-card-ctg {
-  transition: transform 0.2s;
-  width: 250px;
-  height: 100px;
-  margin-left: 10px;
-
+  flex: 0 0 auto;
+  /* Biarkan lebar kartu menyesuaikan kontennya */
+  width: 300px;
+  /* Atur lebar kartu sesuai kebutuhan */
+  margin: 10px;
+  /* Atur jarak antara kartu */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: left;
 }
 
-.product-card-ct:hover {
-  transform: translateY(-5px);
-}
-
-.product-card-ctg img {
-  width: 200px;
-  object-fit: cover;
-  height: 100px;
+.product-image-ctg {
+  max-width: 100%;
+  width: 300px;
+  height: 150px;
   border-radius: 10px;
+  object-fit: cover;
 }
-
 
 .product-name-ctg {
-  color: var(--white);
-  font-size: 13px;
-  margin: 5px 0;
+  margin-top: 8px;
+  font-size: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Batasan baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+
+
+.product-info-ctg {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1em;
+  /* Sesuaikan ketinggian sesuai kebutuhan */
+}
+
 
 .product-container {
   font-size: 14px;
-  color: #555;
+  color: var(--grey-text);
 }
 
 .product-container::-webkit-scrollbar {
@@ -436,6 +452,34 @@ body {
   background-color: var(--dark-bg);
   border-radius: 5px;
 }
+
+/* Gaya untuk elemen ".section-category" */
+.section-category-beef,
+.section-category-kategori1 {
+  margin-bottom: 20px;
+}
+
+/* Gaya untuk elemen ".title-container" */
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  /* Mengatur elemen pada ujung kiri dan kanan */
+  align-items: center;
+  /* Mengatur elemen secara vertikal berada di tengah */
+}
+
+/* Gaya untuk elemen "See All" */
+.see-all {
+  font-size: 14px;
+  color: var(--gold-color);
+  margin-right: 10px;
+}
+
+/* Gaya untuk elemen ".product-container" (hanya sebagai contoh) */
+.product-container {
+  /* Gaya untuk kontainer produk, misalnya lebar, tinggi, dll. */
+}
+
 
 #tabs {
   position: fixed;
@@ -532,8 +576,8 @@ body {
   top: -50px;
   right: -10px;
   border-radius: 50px;
-  background-color: rgba(247, 207, 152, 0.461);
-  backdrop-filter: blur(10px);
+  background-color: rgba(247, 207, 152, 0.241);
+  backdrop-filter: blur(5px);
 }
 
 /* Styling for the product price */

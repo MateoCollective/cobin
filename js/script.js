@@ -25,7 +25,7 @@ function displayShuffledProducts(products) {
       <div class="product-card">
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">$${product.price}</p>
+        <p class="product-price">${product.category}</p>
       </div>
     `;
     productList.appendChild(productItem);
@@ -59,76 +59,76 @@ fetch('json/products.json')
     displayProducts(products);
 
     // Listen for search input changes
-  // Listen for search input changes
-searchInput.addEventListener('input', () => {
-  const searchTerm = searchInput.value.toLowerCase();
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm) ||
-    (product.detail && product.detail.toLowerCase().includes(searchTerm))
-  );
+    // Listen for search input changes
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm) ||
+        (product.detail && product.detail.toLowerCase().includes(searchTerm))
+      );
 
-  displayProducts(filteredProducts);
+      displayProducts(filteredProducts);
 
-  // Generate search recommendations based on input
-  const searchRecommendations = generateSearchRecommendations(searchTerm);
-  displaySearchRecommendations(searchRecommendations);
-});
-
-// Function to generate search recommendations
-function generateSearchRecommendations(searchTerm) {
-  // Filter products to find names that match the search term
-  const matchingProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm)
-  );
-
-  // Extract unique words from matching product names
-  const words = matchingProducts.flatMap(product =>
-    product.name.toLowerCase().split(' ')
-  );
-  const uniqueWords = [...new Set(words)];
-
-  return uniqueWords;
-}
-
-// Function to display search recommendations
-function displaySearchRecommendations(recommendations) {
-  const recommendationList = document.getElementById('searchRecommendations');
-  recommendationList.innerHTML = '';
-
-  recommendations.forEach(recommendation => {
-    const recommendationItem = document.createElement('li');
-    recommendationItem.textContent = recommendation;
-    recommendationItem.addEventListener('click', () => {
-      searchInput.value = recommendation;
-      recommendationList.innerHTML = ''; // Clear recommendations
-      // Trigger search or other action here
+      // Generate search recommendations based on input
+      const searchRecommendations = generateSearchRecommendations(searchTerm);
+      displaySearchRecommendations(searchRecommendations);
     });
-    recommendationList.appendChild(recommendationItem);
-  });
 
-  // Show/hide the recommendation list based on content
-  if (recommendations.length > 0) {
-    recommendationList.style.display = 'block';
-  } else {
-    recommendationList.style.display = 'none';
-  }
-}
+    // Function to generate search recommendations
+    function generateSearchRecommendations(searchTerm) {
+      // Filter products to find names that match the search term
+      const matchingProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm)
+      );
 
-// Listen for clicks outside the search input to clear recommendations
-document.addEventListener('click', (event) => {
-  const targetElement = event.target;
-  
-  // Check if the click target is outside the search input
-  if (!searchInput.contains(targetElement)) {
-    clearSearchRecommendations();
-  }
-});
+      // Extract unique words from matching product names
+      const words = matchingProducts.flatMap(product =>
+        product.name.toLowerCase().split(' ')
+      );
+      const uniqueWords = [...new Set(words)];
 
-// Function to clear search recommendations
-function clearSearchRecommendations() {
-  const recommendationList = document.getElementById('searchRecommendations');
-  recommendationList.innerHTML = '';
-}
+      return uniqueWords;
+    }
+
+    // Function to display search recommendations
+    function displaySearchRecommendations(recommendations) {
+      const recommendationList = document.getElementById('searchRecommendations');
+      recommendationList.innerHTML = '';
+
+      recommendations.forEach(recommendation => {
+        const recommendationItem = document.createElement('li');
+        recommendationItem.textContent = recommendation;
+        recommendationItem.addEventListener('click', () => {
+          searchInput.value = recommendation;
+          recommendationList.innerHTML = ''; // Clear recommendations
+          // Trigger search or other action here
+        });
+        recommendationList.appendChild(recommendationItem);
+      });
+
+      // Show/hide the recommendation list based on content
+      if (recommendations.length > 0) {
+        recommendationList.style.display = 'block';
+      } else {
+        recommendationList.style.display = 'none';
+      }
+    }
+
+    // Listen for clicks outside the search input to clear recommendations
+    document.addEventListener('click', (event) => {
+      const targetElement = event.target;
+
+      // Check if the click target is outside the search input
+      if (!searchInput.contains(targetElement)) {
+        clearSearchRecommendations();
+      }
+    });
+
+    // Function to clear search recommendations
+    function clearSearchRecommendations() {
+      const recommendationList = document.getElementById('searchRecommendations');
+      recommendationList.innerHTML = '';
+    }
 
 
 
@@ -164,11 +164,16 @@ function clearSearchRecommendations() {
           productItem.classList.add('product-ctg');
           productItem.dataset.productId = product.name;
           productItem.innerHTML = `
+         
           <div class="product-card-ctg">
           <img src="${product.image}" alt="${product.name}" class="product-image-ctg">
           <h3 class="product-name-ctg">${product.name}</h3>
-          <p class="product-price-ctg">$${product.price}</p>
-          </div>
+          <p class="product-info-ctg">${product.info}</p>
+        </div>
+        
+          
+
+        
           `;
           categoryContainers[product.category].appendChild(productItem);
 
@@ -239,12 +244,12 @@ function displayProducts(products) {
 // Display list of products with different class
 function displayProductsAlternate(products) {
   alternateProductList.innerHTML = '';
-  
+
   products.forEach(product => {
-      const productItem = document.createElement('div');
-      productItem.classList.add('alternate-product-item');
-      productItem.dataset.productId = product.name;
-      productItem.innerHTML = `
+    const productItem = document.createElement('div');
+    productItem.classList.add('alternate-product-item');
+    productItem.dataset.productId = product.name;
+    productItem.innerHTML = `
           <div class="alternate-product-card">
               <img src="${product.image}" alt="${product.name}" class="alternate-product-image">
               <h2 class="alternate-product-category">${product.category}</h2>
@@ -254,13 +259,13 @@ function displayProductsAlternate(products) {
           </div>
           </div>
       `;
-      alternateProductList.appendChild(productItem);
+    alternateProductList.appendChild(productItem);
 
-      // Add a click event listener to each alternate product item
-      productItem.addEventListener('click', () => {
-          const selectedProduct = products.find(p => p.name === productItem.dataset.productId);
-          displayProductDetails(selectedProduct);
-      });
+    // Add a click event listener to each alternate product item
+    productItem.addEventListener('click', () => {
+      const selectedProduct = products.find(p => p.name === productItem.dataset.productId);
+      displayProductDetails(selectedProduct);
+    });
   });
 }
 

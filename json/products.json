@@ -1,6 +1,21 @@
 [
     {
-        "name": "Burger chess",
+        "name": "Beef Caldereta",
+        "detail": "Lorem ipsum dolor sit amet",
+        "price": "99",
+        "info": "This is the latest and greatest product from Derp corp.This is the latest and greatest product from Derp corp.This is the latest and greatest product from Derp corp.",
+        "category": "beef",
+        "image": "https://www.themealdb.com/images/media/meals/41cxjh1683207682.jpg",
+        "ingredients": ["Beef patty", "Cheese", "Lettuce", "Tomato", "Bun"],
+        "cooking_instructions": [
+            "Grill the beef patty to your preferred level of doneness.",
+            "Assemble the burger by placing cheese, lettuce, and tomato on the bun.",
+            "Place the grilled patty on top of the vegetables.",
+            "Serve the burger and enjoy!"
+        ]
+    },
+    {
+        "name": "Beef Mechado",
         "detail": "Lorem ipsum dolor sit amet",
         "price": "99",
         "info": "This is the latest and greatest product from Derp corp.",
@@ -15,27 +30,12 @@
         ]
     },
     {
-        "name": "Burger chess",
+        "name": "Eggplant Adobo",
         "detail": "Lorem ipsum dolor sit amet",
         "price": "99",
         "info": "This is the latest and greatest product from Derp corp.",
         "category": "beef",
-        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_632/11d770100935701.5f13dc435139a.jpg",
-        "ingredients": ["Beef patty", "Cheese", "Lettuce", "Tomato", "Bun"],
-        "cooking_instructions": [
-            "Grill the beef patty to your preferred level of doneness.",
-            "Assemble the burger by placing cheese, lettuce, and tomato on the bun.",
-            "Place the grilled patty on top of the vegetables.",
-            "Serve the burger and enjoy!"
-        ]
-    },
-    {
-        "name": "Burger chess",
-        "detail": "Lorem ipsum dolor sit amet",
-        "price": "99",
-        "info": "This is the latest and greatest product from Derp corp.",
-        "category": "beef",
-        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_632/11d770100935701.5f13dc435139a.jpg",
+        "image": "https://www.themealdb.com/images/media/meals/y7h0lq1683208991.jpg",
         "ingredients": ["Beef patty", "Cheese", "Lettuce", "Tomato", "Bun"],
         "cooking_instructions": [
             "Grill the beef patty to your preferred level of doneness.",
