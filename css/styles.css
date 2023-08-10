@@ -7,6 +7,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -29,6 +30,7 @@ body {
   background-color: var(--dark-bg);
   color: var(--grey-text);
   font-family: Open Sans, Helvetica, sans-serif;
+  pointer: none;
 }
 
 .container {
@@ -56,6 +58,7 @@ body {
   background-color: var(--medium-bg);
   margin: 20px 0px;
   width: 100%;
+  font-size: 15px;
 }
 
 .search-input {
@@ -83,6 +86,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 2vw;
   margin: 10px;
+  margin-bottom: 60px;
 }
 
 .product-item {
@@ -98,13 +102,15 @@ body {
 
 .product-image {
   max-width: 100%;
-  height: auto;
+  width: 151px;
+  height: 151px;
+  flex-shrink: 0;
   margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 16px;
 }
 
 .product-name {
-  font-size: 13px;
+  font-size: 17px;
   margin: 0;
   color: var(--white);
   text-align: left;
@@ -112,7 +118,7 @@ body {
 }
 
 .product-price {
-  font-size: 10px;
+  font-size: 12px;
   margin: 0;
   color: var(--grey-text);
   text-align: left;
@@ -333,7 +339,7 @@ body {
 }
 
 .container h1{
-  font-size: 15px;
+  font-size: 17px;
   margin-left: 20px;
   color: var(--white);
 }
@@ -403,6 +409,7 @@ body {
   justify-content: space-around;
   padding: 0px 10px;
   box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 }
 .tab {
   color: #777;
@@ -434,14 +441,13 @@ body {
 
 /* Styling for each individual product item */
 .alternate-product-item {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
 
 /* Styling for the product card within each item */
 .alternate-product-card {
-  order: 2;
   text-align: left;
   margin-top: auto;
 }
@@ -463,14 +469,33 @@ body {
 
 /* Styling for the product name */
 .alternate-product-name {
-  font-size: 1.2rem;
+  font-size: 17px;
   color: var(--white);
   margin: 0;
 }
 
+.alternate-product-dit {
+  position: relative;
+  z-index: 1;
+  top: -50px
+}
+
+.alternate-product-category {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--dark-bg);
+  padding: 8px;
+  position: relative;
+  z-index: 1;
+  top: -38px;
+  border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+  background-color: var(--gold-color);
+}
+
 /* Styling for the product price */
-.alternate-product-price {
-  font-size: 1rem;
+.alternate-product-info {
+  font-size: 15px;
   color: var(--grey-text);
   margin: 5px 0;
 }

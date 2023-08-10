@@ -1,59 +1,60 @@
 const searchInput = document.getElementById('searchInput');
 const productList = document.getElementById('productList');
+const alternateProductList = document.getElementById('alternateProductList');
 const productDetails = document.getElementById('productDetails');
 const categoryFilter = document.getElementById('categoryFilter'); // Get category filter element
 
 
 // Load products from JSON file
 fetch('json/products.json')
-    .then(response => response.json())
-    .then(data => {
-        const products = data;
+  .then(response => response.json())
+  .then(data => {
+    const products = data;
 
-        // Display all products initially
-        displayProductsAlternate(products);
-        displayProducts(products);
+    // Display all products initially
+    displayProductsAlternate(products);
+    displayProducts(products);
 
-        // Listen for search input changes
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            const filteredProducts = products.filter(product =>
-                product.name.toLowerCase().includes(searchTerm) ||
-                (product.detail && product.detail.toLowerCase().includes(searchTerm))
-            );
+    // Listen for search input changes
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm) ||
+        (product.detail && product.detail.toLowerCase().includes(searchTerm))
+      );
 
-            displayProducts(filteredProducts);
-        });
+      displayProducts(filteredProducts);
+    });
 
-        
-// Listen for category filter changes
-categoryFilter.addEventListener('change', () => {
-  const selectedCategory = categoryFilter.value;
-  const filteredProducts = products.filter(product =>
-      (!selectedCategory || product.category === selectedCategory)
-  );
 
-  displayProducts(filteredProducts);
-});
+    // Listen for category filter changes
+    categoryFilter.addEventListener('change', () => {
+      const selectedCategory = categoryFilter.value;
+      const filteredProducts = products.filter(product =>
+        (!selectedCategory || product.category === selectedCategory)
+      );
 
-// ...
+      displayProducts(filteredProducts);
+    });
 
-// Display products in their respective category sections
-function displayProductsByCategory(products) {
-  const categoryContainers = {
-      "beef": document.getElementById("beefProducts"),
-      "kategori1": document.getElementById("kategori1Products")
-      // Tambahkan kategori lainnya jika diperlukan
-  };
+    // ...
 
-  // Clear the existing content
-  for (const containerId in categoryContainers) {
-      categoryContainers[containerId].innerHTML = ``;
-  }
+    // Display products in their respective category sections
+    function displayProductsByCategory(products) {
+      const categoryContainers = {
+        "beef": document.getElementById("beefProducts"),
+        "kategori1": document.getElementById("kategori1Products")
+        // Tambahkan kategori lainnya jika diperlukan
+      };
 
-  // Populate category sections with products
-  products.forEach(product => {
-      if (categoryContainers[product.category]) {
+      // Clear the existing content
+      for (const containerId in categoryContainers) {
+        categoryContainers[containerId].innerHTML = ``;
+      }
+
+      // Populate category sections with products
+      products.forEach(product => {
+        if (categoryContainers[product.category]) {
           const productItem = document.createElement('div');
           productItem.classList.add('product-ctg');
           productItem.dataset.productId = product.name;
@@ -65,93 +66,109 @@ function displayProductsByCategory(products) {
           </div>
           `;
           categoryContainers[product.category].appendChild(productItem);
-          
+
           // Add a click event listener to each product item
           productItem.addEventListener('click', () => {
-              const selectedProduct = products.find(p => p.name === productItem.dataset.productId);
-              displayProductDetails(selectedProduct);
+            const selectedProduct = products.find(p => p.name === productItem.dataset.productId);
+            displayProductDetails(selectedProduct);
           });
-      }
-  });
-}
-
-// ...
-
-// Replace this line in your existing code
-displayProducts(products);
-
-// with
-displayProductsByCategory(products);
-
-
-        searchInput.addEventListener('input', () => {
-          const searchTerm = searchInput.value.toLowerCase();
-          const selectedCategory = document.getElementById('categoryFilter').value; // Get selected category value
-          const filteredProducts = products.filter(product =>
-              (product.name.toLowerCase().includes(searchTerm) ||
-              (product.detail && product.detail.toLowerCase().includes(searchTerm))) &&
-              (!selectedCategory || product.category === selectedCategory) // Apply category filter
-          );
-      
-          displayProducts(filteredProducts);
+        }
       });
-      
+    }
 
-        // Display product details
-        productList.addEventListener('click', event => {
-            const productItem = event.target.closest('.product-item');
-            if (productItem) {
-                const selectedProductId = productItem.dataset.productId;
-                const selectedProduct = products.find(product => product.name === selectedProductId);
-                displayProductDetails(selectedProduct);
-            }
-        });
+    // ...
+
+    // Replace this line in your existing code
+    displayProducts(products);
+
+    // with
+    displayProductsByCategory(products);
+
+
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = document.getElementById('categoryFilter').value; // Get selected category value
+      const filteredProducts = products.filter(product =>
+        (product.name.toLowerCase().includes(searchTerm) ||
+          (product.detail && product.detail.toLowerCase().includes(searchTerm))) &&
+        (!selectedCategory || product.category === selectedCategory) // Apply category filter
+      );
+
+      displayProducts(filteredProducts);
     });
 
-    
+
+    // Display product details
+    productList.addEventListener('click', event => {
+      const productItem = event.target.closest('.product-item');
+      if (productItem) {
+        const selectedProductId = productItem.dataset.productId;
+        const selectedProduct = products.find(product => product.name === selectedProductId);
+        displayProductDetails(selectedProduct);
+      }
+    });
+  });
+
+
 
 // Display list of products
 function displayProducts(products) {
-    productList.innerHTML = '';
-    products.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('product-item');
-        productItem.dataset.productId = product.name;
-        productItem.innerHTML = `
+  productList.innerHTML = '';
+  products.forEach(product => {
+    const productItem = document.createElement('div');
+    productItem.classList.add('product-item');
+    productItem.dataset.productId = product.name;
+    productItem.innerHTML = `
             <div class="product-card">
             <img src="${product.image}" alt="${product.name}" class="product-image">
             <h3 class="product-name">${product.name}</h3>
             <p class="product-price">$${product.price}</p>
             </div>
         `;
-        productList.appendChild(productItem);
-    });
+    productList.appendChild(productItem);
+  });
 }
+
+// ...
 
 // Display list of products with different class
 function displayProductsAlternate(products) {
-    const alternateProductList = document.getElementById('alternateProductList');
-    alternateProductList.innerHTML = '';
-    
-    products.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('alternate-product-item'); // Menambahkan class berbeda
-        productItem.dataset.productId = product.name;
-        productItem.innerHTML = `
-            <div class="alternate-product-card"> <!-- Menggunakan class berbeda -->
-            <img src="${product.image}" alt="${product.name}" class="alternate-product-image"> <!-- Menggunakan class berbeda -->
-            <h3 class="alternate-product-name">${product.name}</h3> <!-- Menggunakan class berbeda -->
-            <p class="alternate-product-price">$${product.price}</p> <!-- Menggunakan class berbeda -->
-            </div>
-        `;
-        alternateProductList.appendChild(productItem);
-    });
+  alternateProductList.innerHTML = '';
+  
+  products.forEach(product => {
+      const productItem = document.createElement('div');
+      productItem.classList.add('alternate-product-item');
+      productItem.dataset.productId = product.name;
+      productItem.innerHTML = `
+          <div class="alternate-product-card">
+              <img src="${product.image}" alt="${product.name}" class="alternate-product-image">
+              <h2 class="alternate-product-category">${product.category}</h2>
+              <div class"alternate-product-dit">
+              <h3 class="alternate-product-name">${product.name}</h3>
+              <p class="alternate-product-info">${product.info}</p>
+          </div>
+          </div>
+      `;
+      alternateProductList.appendChild(productItem);
+
+      // Add a click event listener to each alternate product item
+      productItem.addEventListener('click', () => {
+          const selectedProduct = products.find(p => p.name === productItem.dataset.productId);
+          displayProductDetails(selectedProduct);
+      });
+  });
 }
+
+// ...
+
+// Call the loadProducts function when the page is loaded
+window.addEventListener('load', loadProducts);
+
 
 
 // Display product details
 function displayProductDetails(product) {
-    productDetails.innerHTML = `
+  productDetails.innerHTML = `
         <div class="container-details">
         <div class="con-details">
         <div class="header-details">
@@ -189,14 +206,12 @@ function displayProductDetails(product) {
           <div class="ingredients">
             <h2>Bahan-bahan:</h2>
             <ul>
-              <!-- Loop through the ingredients array -->
               ${product.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
             </ul>
           </div>
           <div class="instructions">
             <h2>Cara Memasak:</h2>
             <ol>
-              <!-- Loop through the cooking_instructions array -->
               ${product.cooking_instructions.map(instruction => `<li>${instruction}</li>`).join('')}
             </ol>
           </div>
@@ -204,60 +219,60 @@ function displayProductDetails(product) {
         </div>
       `;
 
-    const closeButton = document.getElementById('closeButton');
-    closeButton.addEventListener('click', () => {
-        productDetails.innerHTML = '';
-    });
+  const closeButton = document.getElementById('closeButton');
+  closeButton.addEventListener('click', () => {
+    productDetails.innerHTML = '';
+  });
 }
 
 // ...
 
 // Function to shuffle (randomize) an array
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 // Display list of products with shuffled order
 function displayShuffledProducts(products) {
-    const shuffledProducts = shuffleArray([...products]);
-    productList.innerHTML = '';
-    shuffledProducts.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('product-item');
-        productItem.dataset.productId = product.name;
-        productItem.innerHTML = `
+  const shuffledProducts = shuffleArray([...products]);
+  productList.innerHTML = '';
+  shuffledProducts.forEach(product => {
+    const productItem = document.createElement('div');
+    productItem.classList.add('product-item');
+    productItem.dataset.productId = product.name;
+    productItem.innerHTML = `
             <div class="product-card">
             <img src="${product.image}" alt="${product.name}" class="product-image">
             <h3 class="product-name">${product.name}</h3>
             <p class="product-price">$${product.price}</p>
             </div>
         `;
-        productList.appendChild(productItem);
-    });
+    productList.appendChild(productItem);
+  });
 }
 
 // ...
 
 // Call the shuffled display function when the page is loaded
 window.addEventListener('load', () => {
-    fetch('json/products.json')
-        .then(response => response.json())
-        .then(data => {
-            const products = data;
-            displayShuffledProducts(products);
-            // ...
-        });
+  fetch('json/products.json')
+    .then(response => response.json())
+    .then(data => {
+      const products = data;
+      displayShuffledProducts(products);
+      // ...
+    });
 });
 
 // Function to shuffle (randomize) an array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
@@ -267,36 +282,34 @@ function displayShuffledAlternateProducts(products) {
   const alternateProductList = document.getElementById('alternateProductList');
   const shuffledProducts = shuffleArray([...products]);
   alternateProductList.innerHTML = '';
-  
+
   shuffledProducts.forEach(product => {
-      const productItem = document.createElement('div');
-      productItem.classList.add('alternate-product-item'); // Menambahkan class berbeda
-      productItem.dataset.productId = product.name;
-      productItem.innerHTML = `
+    const productItem = document.createElement('div');
+    productItem.classList.add('alternate-product-item'); // Menambahkan class berbeda
+    productItem.dataset.productId = product.name;
+    productItem.innerHTML = `
           <div class="alternate-product-card"> <!-- Menggunakan class berbeda -->
           <img src="${product.image}" alt="${product.name}" class="alternate-product-image"> <!-- Menggunakan class berbeda -->
           <h3 class="alternate-product-name">${product.name}</h3> <!-- Menggunakan class berbeda -->
           <p class="alternate-product-price">$${product.price}</p> <!-- Menggunakan class berbeda -->
           </div>
       `;
-      alternateProductList.appendChild(productItem);
+    alternateProductList.appendChild(productItem);
   });
 }
 
 // Panggil fungsi untuk menampilkan daftar produk dengan class berbeda yang diacak saat halaman dimuat
 window.addEventListener('load', () => {
   fetch('json/products.json')
-      .then(response => response.json())
-      .then(data => {
-          const products = data;
-          displayShuffledAlternateProducts(products);
+    .then(response => response.json())
+    .then(data => {
+      const products = data;
+      displayShuffledAlternateProducts(products);
 
-          // ... Kode lainnya seperti yang Anda berikan sebelumnya ...
+      // ... Kode lainnya seperti yang Anda berikan sebelumnya ...
 
-      });
+    });
 });
 
 
 // ...
-
-
