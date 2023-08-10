@@ -10,7 +10,7 @@
   user-select: none;
 }
 /* Menghilangkan efek tap biru pada elemen yang mendapatkan fokus */
-*:focus {
+body:focus {
   outline: none;
 }
 
@@ -35,7 +35,6 @@ body {
   background-color: var(--dark-bg);
   color: var(--grey-text);
   font-family: Open Sans, Helvetica, sans-serif;
-  pointer: none;
 }
 
 .container {
@@ -49,6 +48,7 @@ body {
   align-items: center;
   width: 100%;
   justify-content: center;
+  height: 56px;
 }
 
 .search {
@@ -57,9 +57,10 @@ body {
 
 .search-form {
   display: flex;
+  height: 56px;
   align-items: center;
   border-radius: 10px;
-  padding: 8px;
+  padding: 20px;
   background-color: var(--medium-bg);
   margin: 20px 0px;
   width: 100%;
@@ -74,6 +75,7 @@ body {
 }
 
 .category-filter {
+  height: 56px;
   border: none;
   outline: none;
   text-align: center;
