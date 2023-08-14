@@ -4,48 +4,12 @@ const alternateProductList = document.getElementById('alternateProductList');
 const productDetails = document.getElementById('productDetails');
 const categoryFilter = document.getElementById('categoryFilter'); // Get category filter element
 
-// Function to shuffle (randomize) an array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-  return array;
 }
-
-// Display list of products with shuffled order
-function displayShuffledProducts(products) {
-  const shuffledProducts = shuffleArray([...products]);
-  productList.innerHTML = '';
-  shuffledProducts.forEach(product => {
-    const productItem = document.createElement('div');
-    productItem.classList.add('product-item');
-    productItem.dataset.productId = product.name;
-    productItem.innerHTML = `
-      <div class="product-card">
-        <img src="${product.image}" alt="${product.name}" class="product-image">
-        <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">${product.category}</p>
-      </div>
-    `;
-    productList.appendChild(productItem);
-  });
-}
-
-
-// Load products from JSON file and display shuffled alternate products
-window.addEventListener('load', () => {
-  fetch('json/products.json')
-    .then(response => response.json())
-    .then(data => {
-      const products = data;
-      displayShuffledProducts(products); // Display shuffled products
-      displayShuffledAlternateProducts(products); // Display shuffled alternate products
-
-      // ... Kode lainnya seperti yang Anda berikan sebelumnya ...
-
-    });
-});
 
 
 // Load products from JSON file
@@ -54,7 +18,11 @@ fetch('json/products.json')
   .then(data => {
     const products = data;
 
+    shuffleArray(products);
+
     // Display all products initially
+    displayProductsAlternate(products);
+    displayProductsByCategory(products);
     displayProductsAlternate(products);
     displayProducts(products);
 
@@ -148,7 +116,7 @@ fetch('json/products.json')
     function displayProductsByCategory(products) {
       const categoryContainers = {
         "beef": document.getElementById("beefProducts"),
-        "kategori1": document.getElementById("kategori1Products")
+        "seafood": document.getElementById("seafoodProducts")
         // Tambahkan kategori lainnya jika diperlukan
       };
 
@@ -157,6 +125,21 @@ fetch('json/products.json')
         categoryContainers[containerId].innerHTML = ``;
       }
 
+      searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          const searchTerm = searchInput.value.toLowerCase();
+          const selectedCategory = document.getElementById('categoryFilter').value;
+          const filteredProducts = products.filter(product =>
+            (product.name.toLowerCase().includes(searchTerm) ||
+              (product.detail && product.detail.toLowerCase().includes(searchTerm))) &&
+            (!selectedCategory || product.category === selectedCategory)
+          );
+      
+          displayProducts(filteredProducts);
+        }
+      });
+      
+
       // Populate category sections with products
       products.forEach(product => {
         if (categoryContainers[product.category]) {
@@ -164,9 +147,8 @@ fetch('json/products.json')
           productItem.classList.add('product-ctg');
           productItem.dataset.productId = product.name;
           productItem.innerHTML = `
-         
           <div class="product-card-ctg">
-          <img src="${product.image}" alt="${product.name}" class="product-image-ctg">
+          <img src="${product.image}" alt="${product.name}" class="product-image-ctg" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
           <h3 class="product-name-ctg">${product.name}</h3>
           <p class="product-info-ctg">${product.info}</p>
         </div>
@@ -230,9 +212,9 @@ function displayProducts(products) {
     productItem.dataset.productId = product.name;
     productItem.innerHTML = `
             <div class="product-card">
-            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
             <h3 class="product-name">${product.name}</h3>
-            <p class="product-price">$${product.price}</p>
+            <p class="product-price">${product.category}</p>
             </div>
         `;
     productList.appendChild(productItem);
@@ -251,7 +233,7 @@ function displayProductsAlternate(products) {
     productItem.dataset.productId = product.name;
     productItem.innerHTML = `
           <div class="alternate-product-card">
-              <img src="${product.image}" alt="${product.name}" class="alternate-product-image">
+              <img src="${product.image}" alt="${product.name}" class="alternate-product-image" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
               <h2 class="alternate-product-category">${product.category}</h2>
               <div class"alternate-product-dit">
               <h3 class="alternate-product-name">${product.name}</h3>
@@ -295,7 +277,7 @@ function displayProductDetails(product) {
         <div class="product-details-image-new">
           <div class="image-ratio">
             <div class="ratio-inner">
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="${product.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
             </div>
           </div>
         </div>
@@ -334,5 +316,3 @@ function displayProductDetails(product) {
     productDetails.innerHTML = '';
   });
 }
-
-
