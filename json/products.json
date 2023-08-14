@@ -20,7 +20,7 @@
         ],
         "area": "Filipina",
         "rating": 4.7,
-        "time": "1 jam 30 menit"
+        "time": "1 jm 30 mt"
     },
     {
         "name": "Chicken Adobo",
@@ -32,7 +32,7 @@
         "ingredients": ["1 kg potongan ayam", "1/2 cangkir kecap asin", "1/4 cangkir cuka putih", "1 kepala bawang putih (cincang)", "1 sendok teh merica hitam", "3 daun bay, dirobek", "3 sendok makan minyak sayur", "1 sendok teh gula merah", "1 sendok teh bubuk cabai (opsional)", "2 cangkir air", "Garam secukupnya", "Daun bawang cincang (untuk hiasan)"],
         "cooking_instructions": [
             "Campurkan kecap asin, cuka putih, bawang putih cincang, merica hitam, dan daun bay dalam mangkuk.",
-            "Tambahkan potongan ayam ke dalam campuran bumbu, diamkan selama 30 menit.",
+            "Tambahkan potongan ayam ke dalam campuran bumbu, diamkan selama 30 mt.",
             "Panaskan minyak sayur dalam wajan.",
             "Tumis ayam hingga berubah warna.",
             "Tambahkan sisa bumbu marinasi, gula merah, dan bubuk cabai (jika menggunakan).",
@@ -43,7 +43,7 @@
         ],
         "area": "Filipina",
         "rating": 4.9,
-        "time": "1 jam"
+        "time": "1 jm"
     },
     {
         "name": "Tiramisu",
@@ -62,12 +62,12 @@
             "Celupkan ladyfinger ke dalam kopi dingin, susun di dasar wadah.",
             "Tuangkan setengah campuran keju di atas ladyfinger.",
             "Tambahkan lapisan lagi dengan ladyfinger dan campuran keju.",
-            "Refrigerasi selama beberapa jam atau semalam.",
+            "Refrigerasi selama beberapa jm atau semalam.",
             "Taburi permukaan dengan kakao bubuk sebelum disajikan."
         ],
         "area": "Italia",
         "rating": 4.8,
-        "time": "2 jam"
+        "time": "2 jm"
     },
     {
         "name": "Rendang",
@@ -89,7 +89,7 @@
         ],
         "area": "Indonesia",
         "rating": 4.9,
-        "time": "3 jam"
+        "time": "3 jm"
     },
     {
         "name": "Sushi Rolls",
@@ -105,12 +105,12 @@
             "Letakkan potongan ikan salmon, kepiting, mentimun, dan alpukat di tengah nasi.",
             "Taburi dengan wijen sangrai.",
             "Gulung perlahan menggunakan rolling mat, tekan dan bentuk gulungan.",
-            "Potong gulungan menjadi beberapa bagian dengan pisau yang tajam.",
+            "Potong gulungan menjadi beberapa bagian dengan pisau yang tajm.",
             "Sajikan Sushi Rolls dengan saus soya, wasabi, dan gari."
         ],
         "area": "Jepang",
         "rating": 4.8,
-        "time": "45 menit"
+        "time": "45 mt"
     },
     {
         "name": "Pasta Carbonara",
@@ -131,7 +131,7 @@
         ],
         "area": "Italia",
         "rating": 4.7,
-        "time": "30 menit"
+        "time": "30 mt"
     },
     {
         "name": "Sate Ayam",
@@ -143,14 +143,14 @@
         "ingredients": ["500g daging ayam (potong dadu)", "Bambu sate (rendam dalam air)", "2 sendok makan minyak sayur", "1 sendok makan kecap manis", "1 sendok teh gula merah", "Garam dan merica secukupnya", "Bumbu sate (opsional)", "Saus kacang"],
         "cooking_instructions": [
             "Campurkan minyak sayur, kecap manis, gula merah, garam, merica, dan bumbu sate (jika menggunakan) dalam mangkuk.",
-            "Tambahkan potongan daging ayam ke dalam campuran bumbu, aduk hingga rata. Diamkan selama 1 jam.",
+            "Tambahkan potongan daging ayam ke dalam campuran bumbu, aduk hingga rata. Diamkan selama 1 jm.",
             "Tusuk daging ayam pada tusuk sate yang telah direndam.",
             "Panaskan panggangan atau wajan datar, panggang sate ayam hingga matang dan berwarna kecokelatan.",
             "Sajikan Sate Ayam dengan saus kacang."
         ],
         "area": "Indonesia",
         "rating": 4.6,
-        "time": "1 jam 15 menit"
+        "time": "1 jm 15 mt"
     },
     {
         "name": "Pizza Margherita",
@@ -170,7 +170,7 @@
         ],
         "area": "Italia",
         "rating": 4.9,
-        "time": "25 menit"
+        "time": "25 mt"
     },
     {
         "name": "Gado-Gado",
@@ -189,7 +189,7 @@
         ],
         "area": "Indonesia",
         "rating": 4.7,
-        "time": "40 menit"
+        "time": "40 mt"
     },
     {
         "name": "Sushi Nigiri",
@@ -206,7 +206,7 @@
         ],
         "area": "Jepang",
         "rating": 4.9,
-        "time": "30 menit"
+        "time": "30 mt"
     },
     {
         "name": "Mie Goreng",
@@ -229,7 +229,7 @@
         ],
         "area": "Indonesia",
         "rating": 4.8,
-        "time": "25 menit"
+        "time": "25 mt"
     },
     {
         "name": "Churros",
@@ -251,26 +251,26 @@
         ],
         "area": "Spanyol",
         "rating": 4.7,
-        "time": "45 menit"
+        "time": "45 mt"
     },
     {
         "name": "Tom Yum Goong",
-        "detail": "Sup pedas asam dengan udang segar, jamur, dan rempah-rempah khas Thailand.",
+        "detail": "Sup pedas asam dengan udang segar, jmur, dan rempah-rempah khas Thailand.",
         "price": "110",
         "info": "Nikmati kelezatan Tom Yum Goong dari Derp Corp!",
         "category": "soup",
         "image": "https://www.themealdb.com/images/media/meals/xxrxyq1511453673.jpg",
-        "ingredients": ["200g udang besar (kupas, sisakan ekornya)", "200g jamur segar (iris tipis)", "2 batang serai (geprek)", "3 lembar daun jeruk", "3 lembar daun salam", "3 lembar daun jeruk purut", "3 cabai rawit merah", "2 sendok makan saus ikan", "2 sendok makan saus tomat", "1 sendok makan gula merah", "2 sendok makan air jeruk limo"], "cooking_instructions": [
+        "ingredients": ["200g udang besar (kupas, sisakan ekornya)", "200g jmur segar (iris tipis)", "2 batang serai (geprek)", "3 lembar daun jeruk", "3 lembar daun salam", "3 lembar daun jeruk purut", "3 cabai rawit merah", "2 sendok makan saus ikan", "2 sendok makan saus tomat", "1 sendok makan gula merah", "2 sendok makan air jeruk limo"], "cooking_instructions": [
             "Panaskan air dalam panci besar, masukkan serai, daun jeruk, dan daun salam.",
             "Tambahkan saus ikan, saus tomat, dan gula merah.",
-            "Masak hingga mendidih, tambahkan udang dan jamur.",
+            "Masak hingga mendidih, tambahkan udang dan jmur.",
             "Setelah udang berubah warna, tambahkan air jeruk limo.",
             "Koreksi rasa dengan garam jika perlu.",
             "Sajikan Tom Yum Goong panas."
         ],
         "area": "Thailand",
         "rating": 4.9,
-        "time": "30 menit"
+        "time": "30 mt"
     },
     {
         "name": "Croissant",
@@ -281,13 +281,13 @@
         "image": "https://www.themealdb.com/images/media/meals/v0d4s01559237277.jpg",
         "ingredients": ["250g tepung terigu", "50g gula pasir", "5g ragi instan", "120ml susu hangat", "100g mentega (dinginkan)", "1/2 sendok teh garam", "Telur (untuk olesan)", "Keju parut (opsional)"],
         "cooking_instructions": [
-            "Campurkan ragi instan dengan susu hangat, biarkan selama beberapa menit hingga berbusa.",
+            "Campurkan ragi instan dengan susu hangat, biarkan selama beberapa mt hingga berbusa.",
             "Dalam mangkuk besar, campurkan tepung terigu, gula, dan garam.",
             "Tambahkan campuran ragi dan susu, aduk hingga tercampur.",
-            "Uleni adonan hingga elastis, tutup dengan kain bersih dan diamkan selama 1 jam.",
+            "Uleni adonan hingga elastis, tutup dengan kain bersih dan diamkan selama 1 jm.",
             "Giling adonan membentuk persegi panjang, letakkan mentega di tengah adonan dan lipat seperti amplop.",
-            "Gulung dan lipat adonan menjadi tiga lapisan, dinginkan dalam lemari es selama 20 menit.",
-            "Gulung dan lipat adonan lagi sekali, dinginkan lagi selama 20 menit.",
+            "Gulung dan lipat adonan menjadi tiga lapisan, dinginkan dalam lemari es selama 20 mt.",
+            "Gulung dan lipat adonan lagi sekali, dinginkan lagi selama 20 mt.",
             "Gulung adonan tipis, potong segitiga, dan gulung menjadi bentuk croissant.",
             "Letakkan croissant dalam loyang, olesi dengan telur.",
             "Panggang dalam oven hingga kecokelatan dan mengembang.",
@@ -295,6 +295,6 @@
         ],
         "area": "Perancis",
         "rating": 4.8,
-        "time": "2 jam 30 menit"
+        "time": "2 jm 30 mt"
     }
 ]

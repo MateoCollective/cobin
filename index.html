@@ -58,25 +58,33 @@
 
             <div class="greeting-container">
                 <h1 id="greeting"></h1>
-              </div>
+            </div>
+
+
+
+
+
+
+
+            
 
 
             <!-- Buat div untuk setiap kategori -->
-         <div class="section-category-beef">
-    <div class="title-container">
-        <h1>Beef Food</h1>
-        <p class="see-all">See All</p>
-    </div>
-    <div id="beefProducts" class="product-container"></div>
-</div>
+            <div class="section-category-beef">
+                <div class="title-container">
+                    <h1>Beef Food</h1>
+                    <p class="see-all">See All</p>
+                </div>
+                <div id="beefProducts" class="product-container"></div>
+            </div>
 
-<div class="section-category-kategori1">
-    <div class="title-container">
-        <h1>Seafood</h1>
-        <p class="see-all">See All</p>
-    </div>
-    <div id="seafoodProducts" class="product-container"></div>
-</div>
+            <div class="section-category-kategori1">
+                <div class="title-container">
+                    <h1>Seafood</h1>
+                    <p class="see-all">See All</p>
+                </div>
+                <div id="seafoodProducts" class="product-container"></div>
+            </div>
 
             <!-- Tambahkan div untuk kategori lain jika diperlukan -->
 
@@ -140,25 +148,24 @@
             $(".tab[data-tab='home']").click();
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-  const greetingElement = document.getElementById('greeting');
-  const currentTime = new Date().getHours();
+        document.addEventListener('DOMContentLoaded', function () {
+            const greetingElement = document.getElementById('greeting');
+            const currentTime = new Date().getHours();
 
-  let greetingMessage = '';
+            let greetingMessage = '';
 
-  if (currentTime >= 4 && currentTime < 12) {
-    greetingMessage = 'Selamat Pagi mau masak apa hari ini?..';
-  } else if (currentTime >= 12 && currentTime < 18) {
-    greetingMessage = 'Selamat Siang';
-  } else if (currentTime >= 18 && currentTime < 21) {
-    greetingMessage = 'Selamat Sore';
-  } else {
-    greetingMessage = 'Selamat Malam';
-  }
+            if (currentTime >= 4 && currentTime < 12) {
+                greetingMessage = 'Selamat Pagi mau masak apa hari ini?..';
+            } else if (currentTime >= 12 && currentTime < 18) {
+                greetingMessage = 'Selamat Siang';
+            } else if (currentTime >= 18 && currentTime < 21) {
+                greetingMessage = 'Selamat Sore';
+            } else {
+                greetingMessage = 'Selamat Malam';
+            }
 
-  greetingElement.textContent = greetingMessage;
-});
-
+            greetingElement.textContent = greetingMessage;
+        });
     </script>
     <script src="js/script.js"></script>
 </body>

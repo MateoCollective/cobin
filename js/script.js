@@ -125,20 +125,7 @@ fetch('json/products.json')
         categoryContainers[containerId].innerHTML = ``;
       }
 
-      searchInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-          const searchTerm = searchInput.value.toLowerCase();
-          const selectedCategory = document.getElementById('categoryFilter').value;
-          const filteredProducts = products.filter(product =>
-            (product.name.toLowerCase().includes(searchTerm) ||
-              (product.detail && product.detail.toLowerCase().includes(searchTerm))) &&
-            (!selectedCategory || product.category === selectedCategory)
-          );
-      
-          displayProducts(filteredProducts);
-        }
-      });
-      
+
 
       // Populate category sections with products
       products.forEach(product => {
@@ -214,7 +201,10 @@ function displayProducts(products) {
             <div class="product-card">
             <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
             <h3 class="product-name">${product.name}</h3>
-            <p class="product-price">${product.category}</p>
+            <p class="product-info">
+        <span><i class="fas fa-star star-icon"></i> ${product.rating}</span>
+        <span><i class="fas fa-clock clock-icon"></i> ${product.time}</span>
+    </p>
             </div>
         `;
     productList.appendChild(productItem);
@@ -315,4 +305,7 @@ function displayProductDetails(product) {
   closeButton.addEventListener('click', () => {
     productDetails.innerHTML = '';
   });
+
+
+
 }

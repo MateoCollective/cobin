@@ -139,6 +139,7 @@ body {
 
 .product-card {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .product-image {
@@ -159,14 +160,28 @@ body {
   line-height: 1.4;
 }
 
-.product-price {
-  font-size: 12px;
-  margin: 0;
-  color: var(--grey-text);
-  text-align: left;
-  margin-bottom: 8px;
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
+.product-info span {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  color: var(--gold-color); /* Warna ikon bintang */
+  margin-right: 5px;
+}
+
+.clock-icon {
+  color: var(--gold-color); /* Warna ikon jam */
+  margin-right: 5px;
+}
 .container-details {
   position: fixed;
   overflow-y: auto;
@@ -561,6 +576,7 @@ body {
   color: var(--grey-text);
   margin: 5px 0;
 }
+
 
 
 @media (min-width: 768px) {
